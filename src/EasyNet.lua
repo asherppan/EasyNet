@@ -1,12 +1,12 @@
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Objects = script:FindFirstChild("Networking")
+local Objects = path.to.networking.objects
 
 local IsServer = RunService:IsServer()
 
-local Sender = require(script.Sender)
-local GetReceive = require(script.GetReceive)
+local Sender = require(path.to.sender)
+local GetReceive = require(path.to.get.receive)
 
 local function GetLength(t)
 	local i = 0
