@@ -3,8 +3,8 @@ local RunService = game:GetService("RunService")
 
 local IsServer = RunService:IsServer()
 
-local EasyNet = script.Parent:WaitForChild("Networking")
-local GetMethod = require(script.Parent.GetMethod)
+local Networking = path.to.networking.objects
+local GetMethod = require(path.to.get.method)
 
 local sender = {}
 sender.__index = sender
@@ -31,9 +31,9 @@ function sender:Send(p, ...)
 		if p:GetAttribute("_NETWORK") ~= true then
 			repeat task.wait() until p:GetAttribute("_NETWORK")
 		end
-		return EasyNet[self.Mode][GetMethod(self.Mode, all)](EasyNet[self.Mode], p, self.Name, ...)
+		return Networking[self.Mode][GetMethod(self.Mode, all)](Networking[self.Mode], p, self.Name, ...)
 	else
-		return EasyNet[self.Mode][GetMethod(self.Mode, all)](EasyNet[self.Mode], self.Name, p, ...)
+		return Networking[self.Mode][GetMethod(self.Mode, all)](Networking[self.Mode], self.Name, p, ...)
 	end
 end
 
